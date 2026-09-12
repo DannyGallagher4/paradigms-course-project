@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'game/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome{% if user.is_authenticated %}, {{ user.username }}{% endif %}</h1>        <p>You are now logged in.</p>
+        <a href="{% url 'game:play' %}">Play Game</a>
+        <a href="{% url 'game:profile' %}">Profile</a>
+        <a href="{% url 'game:buy_games' %}">Buy Extra Games</a>
+        <a href="{% url 'game:logout' %}">Logout</a>
+    </div>
+</body>
+</html>
